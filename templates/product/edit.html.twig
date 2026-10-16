@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un produit{% endblock %}
+
+{% block body %}
+<div class="container">
+    <br>
+    <h1>Modifier un produit</h1>
+    <br>
+    {% if product.image %}
+        <div class="mb-3">
+            <strong>Image actuelle :</strong><br>
+            <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" width="150" class="img-thumbnail mt-2">
+        </div>
+    {% endif %}
+    {{ include('product/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <br>
+    {{ include('product/_delete_form.html.twig') }}
+    <br>
+    <a class="btn btn-dark" href="{{ path('app_product_index') }}">Retour</a>
+</div>
+{% endblock %}
